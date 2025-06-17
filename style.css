@@ -1,0 +1,186 @@
+p.title {
+    font-size: 52px;
+}
+
+p.subtitle {
+    font-size: 20px;
+}
+
+.actionverb-green {
+    color: rgb(41, 168, 126);
+}
+
+.actionverb-red {
+    color: rgb(227, 92, 92);
+}
+
+.actionverb-blue {
+    color: rgb(98, 168, 230);
+}
+
+.actionverb-orange {
+    color: rgb(246, 179, 65);
+}
+
+.centeredContainer {
+    text-align: center;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.leftSubContainer {
+    text-align: left;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 50vw;
+    max-width: 50vw;
+}
+
+ul {
+    list-style: none;
+}
+
+li:before {
+    content: '> '
+}
+
+/* ----- */
+/* LINKS */
+/* ----- */
+
+a {
+    color: black;
+    text-decoration: none;
+    padding-top: .05rem;
+    padding-bottom: .05rem;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) 50%, rgb(228, 228, 228) 50%) right;
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: .5s ease-in-out;
+}
+/* previously: rgb(207, 207, 243) */
+
+a:hover,
+a:active,
+a:focus {
+    background-position: left;
+}
+
+
+/* ------- */
+/* DETAILS */
+/* ------- */
+
+details>summary {
+    cursor: pointer;
+    font-size: 20px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) 50%, rgb(228, 228, 228) 50%) right;
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: .5s ease-in-out;
+}
+
+details>summary:hover {
+    background-position: left;
+}
+
+details>img {
+    width: 50vw;
+}
+
+details>summary>p {
+    pointer-events: none;
+}
+
+
+@keyframes open {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+/* closing animation */
+@keyframes close {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+details[open] summary~* {
+    animation: open 1s
+}
+
+/* closing class */
+details.closing summary~* {
+    animation: close 0.75s
+}
+
+/* summary::-webkit-details-marker { display: none } */
+/* -> Maybe necessary to remove summary triangle for Safari? */
+
+/* -------------- */
+/* RESPONSIVENESS */
+/* -------------- */
+
+/* for vertically centering div, from: https://codepen.io/robinjessome/pen/dyZqOXy?editors=1100 */ 
+/* -> not used because flex would move title out of page range when expanding details */
+body {
+    margin: 0;
+    /* display: flex; */
+    margin-top: 10vw;
+    height: 100vh;
+    align-items: center;
+
+    /* font-family: "Computer Modern Typewriter"; */
+    font-family: monospace;
+
+}
+
+@media only screen and (max-device-width: 700px) {
+    p.title {
+        font-size: 100px;
+    }
+
+    p.subtitle {
+        font-size: 40px;
+    }
+
+    p.item {
+        font-size: 40px;
+    }
+
+    .leftSubContainer {
+        min-width: 75vw;
+        min-width: 75vw;
+    }
+
+    details>summary {
+        font-size: 40px;
+    }
+
+    details>p {
+        font-size: 28px;
+    }
+
+    details>ul {
+        font-size: 28px;
+    }
+
+    details>img {
+        width: 75vw;
+    }
+}
